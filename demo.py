@@ -144,13 +144,13 @@ def main(model):
 
 def load_model(model_path):
 
-    json_file = open(model_path + 'model_v4_dropout/inceptionv4.json', 'r')
+    json_file = open(model_path + 'inceptionv4.json', 'r')
     loaded_model_json = json_file.read()
     json_file.close()
     model = model_from_json(loaded_model_json)
 
     # load weights into new model
-    model.load_weights(model_path + "model_v4_dropout/inceptionv4.h5")
+    model.load_weights(model_path + "inceptionv4.h5")
     print("Loaded model from disk")
 
     return model
@@ -158,6 +158,8 @@ def load_model(model_path):
 
 if __name__ == '__main__':
 
+    if not os.path.exist('./output'):
+        os.mkdir('./output')
     try:
         path_model = './model_v4/'
         model_v4 = load_model(path_model)

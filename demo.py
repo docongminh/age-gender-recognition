@@ -7,6 +7,8 @@ import time
 import csv 
 import numpy as np
 import argparse
+import keras
+print(">>>Keras version: ", keras.__version__)
 from keras.models import model_from_json
 from imutils.face_utils import FaceAligner
 from imutils.face_utils import rect_to_bb
@@ -66,10 +68,10 @@ def main(model):
     # for face detection
     detector = dlib.get_frontal_face_detector()
     predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
-    fa = FaceAligner(predictor, desiredFaceWidth=224)
+    fa = FaceAligner(predictor, desiredFaceWidth=160)
 
     # load model and weights
-    img_size = 224
+    img_size = 160
 
     # capture video
     cap = cv2.VideoCapture(0)
@@ -109,6 +111,7 @@ def main(model):
         if len(detected) > 0:
             age_list = []
             gender_list = []
+            print(">>> face shape: ", faces.shape)
             gender_arr, age_arr = model.predict(faces)
             # get gender
             for gen in gender_arr:
@@ -158,8 +161,10 @@ def load_model(model_path):
 
 if __name__ == '__main__':
 
-    if not os.path.exist('./output'):
+    if not os.path.exists('./output'):
         os.mkdir('./output')
+    if not os.path.exists('./logs'):
+        os.mkdir('./logs')
     try:
         path_model = './model_v4/'
         model_v4 = load_model(path_model)

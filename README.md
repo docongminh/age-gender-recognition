@@ -10,7 +10,7 @@ Basically, This project based-on Inception-Architecture to build model for Age E
 	- ```model_v4```		# Save model trained consists: weights and architecture
 - Main library
 ```
-	- Dlib
+	- Dlib                 # use bash file to install dlib
 	- Keras==2.3.1
 	- Opencv-python3
 	- Tensorflow==1.14

@@ -8,6 +8,13 @@ Basically, This project based-on Inception-Architecture to build model for Age E
 	- ```data_generator.py```	# Data generate for data augmentation
 	- ```demo.py```		# Demo project with model trained
 	- ```model_v4```		# Save model trained consists: weights and architecture
+- Main library
+```
+	- Dlib
+	- Keras==2.3.1
+	- Opencv-python3
+	- Tensorflow==1.14
+```
 - Demo
 ```
 	python demo.py

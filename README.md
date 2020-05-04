@@ -8,4 +8,12 @@ Basically, This project based-on Inception-Architecture to build model for Age E
 	- ```data_generator.py```	# Data generate for data augmentation
 	- ```demo.py```		# Demo project with model trained
 	- ```model_v4```		# Save model trained consists: weights and architecture
+- Demo
+```
+	python demo.py
+```
+- Default model in [model_v4](https://github.com/docongminh/joint-multi-task-age-estimation-gender-recognition-using-cnn/tree/master/model_v4)
+```
+	Face shape : 160 x 160 x 3
+```
 	
